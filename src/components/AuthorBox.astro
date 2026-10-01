@@ -1,0 +1,162 @@
+---
+import { Image } from 'astro:assets';
+import authorImg from '../assets/author.jpg';
+
+// بررسی آدرس صفحه و قالب برای مخفی‌سازی در صفحات لندینگ
+const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isExcludedPage = pathname === '/' || pathname === '/about';
+const isSplash = Astro.props.entry?.data?.template === 'splash';
+
+const shouldShow = !isExcludedPage && !isSplash;
+---
+
+{shouldShow && (
+  <aside class="author-box-card" aria-label="درباره مدرس">
+    <div class="author-box-inner">
+      <Image
+        src={authorImg}
+        alt="پرتره علی"
+        class="author-avatar"
+      />
+      <div class="author-info">
+        <div class="author-header">
+          <h4 class="author-name">علی</h4>
+          <span class="author-badge">توسعه‌دهنده و پژوهشگر</span>
+        </div>
+        <p class="author-bio">
+          علاقه‌مند به کاوش در زیبایی‌های دنیای ریاضیات و علوم کامپیوتر نظری. من در این پلتفرم تلاش می‌کنم مفاهیم بنیادین را به شکلی مفهومی، دقیق و کاربردی به اشتراک بگذارم.
+        </p>
+        <div class="author-links">
+          <a href="/about/" class="author-link primary">
+            داستان مسیر من
+          </a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="author-link">
+            گیت‌هاب
+          </a>
+        </div>
+      </div>
+    </div>
+  </aside>
+)}
+
+<style>
+  .author-box-card {
+    margin: 3.5rem 0 2rem 0;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(56, 189, 248, 0.05) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    direction: rtl;
+    text-align: right;
+  }
+
+  .author-box-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .author-avatar {
+    width: 5.5rem !important;
+    height: 5.5rem !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    flex-shrink: 0;
+    border: 2px solid rgba(56, 189, 248, 0.5) !important;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.25) !important;
+    margin: 0 !important;
+  }
+
+  .author-info {
+    flex: 1;
+  }
+
+  .author-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .author-name {
+    margin: 0 !important;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--sl-color-white);
+  }
+
+  .author-badge {
+    font-size: 0.725rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 9999px;
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+  }
+
+  .author-bio {
+    margin: 0.35rem 0 0.85rem 0 !important;
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: var(--sl-color-gray-2);
+  }
+
+  .author-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .author-link {
+    font-size: 0.8rem;
+    text-decoration: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--sl-color-gray-2);
+    border: 1px solid var(--sl-color-gray-5);
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.2s ease;
+  }
+
+  .author-link:hover {
+    color: var(--sl-color-white);
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+  }
+
+  .author-link.primary {
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.4);
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  @media (max-width: 48rem) {
+    .author-box-inner {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    .author-header {
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .author-links {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 768px) {
+  .author-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .author-name {
+    margin: 0;
+  }
+}
+</style>

@@ -1,0 +1,120 @@
+---
+const courses = [
+  { slug: 'math-basic', title: 'ریاضیات پایه' },
+  { slug: 'math-1', title: 'ریاضی ۱' },
+  { slug: 'math-2', title: 'ریاضی ۲' },
+  { slug: 'math-foundations', title: 'مبانی علوم ریاضی' },
+  { slug: 'matrices', title: 'مبانی ماتریس‌ها' },
+  { slug: 'linear-algebra', title: 'جبر خطی' },
+  { slug: 'numerical-analysis', title: 'مبانی آنالیز عددی' },
+  { slug: 'mathematical-analysis', title: 'مبانی آنالیز ریاضی' },
+  { slug: 'probability-statistics', title: 'آمار و احتمال' },
+  { slug: 'data-structures', title: 'ساختمان داده' },
+  { slug: 'algorithm-design', title: 'طراحی الگوریتم' },
+  { slug: 'theory-of-computation', title: 'نظریه محاسبه' },
+  { slug: 'mathematical-logic', title: 'مبانی منطق' },
+  { slug: 'set-theory', title: 'نظریه مجموعه‌ها' },
+  { slug: 'discrete-math', title: 'ریاضیات گسسته' },
+  { slug: 'combinatorics', title: 'مبانی ترکیبیات' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="course-bar-fixed" aria-label="دسترسی سریع به دروس">
+  <div class="course-bar-scroll">
+    {courses.map((course) => {
+      const href = `/${course.slug}/`;
+      const isActive = currentPath.includes(`/${course.slug}/`);
+      return (
+        <a
+          href={href}
+          class:list={['course-item', { active: isActive }]}
+        >
+          {course.title}
+        </a>
+      );
+    })}
+  </div>
+</nav>
+
+<style>
+  .course-bar-fixed {
+    position: fixed;
+    top: var(--sl-nav-height, 3.5rem);
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3rem;
+    background-color: var(--sl-color-bg-nav);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--sl-color-hairline);
+    border-top: 1px solid var(--sl-color-hairline);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    direction: rtl;
+    box-sizing: border-box;
+  }
+
+  .course-bar-scroll {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+    padding: 0 0.75rem;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .course-bar-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .course-item {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    color: var(--sl-color-gray-2);
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: var(--sl-color-gray-6);
+    border: 1px solid var(--sl-color-hairline);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 50rem) {
+    .course-bar-fixed {
+      height: 2.75rem;
+    }
+    .course-bar-scroll {
+      padding: 0 1.25rem;
+      gap: 0.5rem;
+    }
+    .course-item {
+      font-size: 0.825rem;
+      padding: 0.25rem 0.85rem;
+    }
+  }
+
+  .course-item:hover {
+    color: var(--sl-color-white);
+    background-color: var(--sl-color-gray-5);
+    border-color: var(--sl-color-gray-3);
+  }
+
+  .course-item.active {
+    color: var(--sl-color-accent-high);
+    background-color: var(--sl-color-accent-low);
+    border-color: var(--sl-color-accent);
+    font-weight: 700;
+  }
+</style>

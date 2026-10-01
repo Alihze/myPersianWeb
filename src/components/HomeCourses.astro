@@ -1,0 +1,318 @@
+---
+const courses = [
+  {
+    title: 'مدار منطقی',
+    desc: 'الفبای سخت‌افزار؛ یاد می‌گیریم چطور صفر و یک‌ها منطق کامپیوتر را می‌سازند.',
+    icon: 'fa-microchip',
+    link: '/digital-logic/'
+  },
+  {
+    title: 'ریاضیات پایه',
+    desc: 'درک مفاهیم مشتق و گرادیان؛ پیش‌نیاز اصلی الگوریتم‌های بهینه‌سازی و یادگیری ماشین.',
+    icon: 'fa-calculator',
+    link: '/math-basic/'
+  },
+  {
+    title: 'ریاضی ۱',
+    desc: 'مفاهیم حد، مشتق، انتگرال و سری‌ها؛ سنگ‌بنای تحلیل ریاضی و علوم محاسباتی.',
+    icon: 'fa-arrow-trend-up',
+    link: '/math-1/'
+  },
+  {
+    title: 'ریاضی ۲',
+    desc: 'حساب دیفرانسیل و انتگرال چندمتغیره؛ درک هندسی فضاها، گرادیان و بهینه‌سازی چندبعدی.',
+    icon: 'fa-layer-group',
+    link: '/math-2/'
+  },
+  {
+    title: 'نظریه مجموعه ها',
+    desc: 'زبان پایه‌ای ریاضی؛ زیربنای ساختارهای داده و تئوری پایگاه‌های داده (دیتابیس).',
+    icon: 'fa-circle-nodes',
+    link: '/set-theory/'
+  },
+  {
+    title: 'ساختمان داده',
+    desc: 'روش‌های بهینه برای چیدمان و نگهداری اطلاعات در حافظه.',
+    icon: 'fa-sitemap',
+    link: '/data-structures/'
+  },
+  {
+    title: 'طراحی الگوریتم',
+    desc: 'پیدا کردن سریع‌ترین و هوشمندانه‌ترین مسیر برای حل مسائل.',
+    icon: 'fa-diagram-project',
+    link: '/algorithms/'
+  },
+  {
+    title: 'آنالیز ریاضی',
+    desc: 'اثبات دقیق قضایای پیوسته؛ مفید برای تحلیل عمیق تئوری‌های یادگیری و بهینه‌سازی.',
+    icon: 'fa-infinity',
+    link: '/math-analysis/'
+  },
+  {
+    title: 'آمار و احتمال',
+    desc: 'مدل‌سازی عدم قطعیت؛ زیربنای اصلی هوش مصنوعی، داده‌کاوی و الگوریتم‌های تصادفی.',
+    icon: 'fa-chart-simple',
+    link: '/probability/'
+  },
+  {
+    title: 'ریاضی گسسته',
+    desc: 'زیربنای منطقی و ساختاریافته علوم کامپیوتر.',
+    icon: 'fa-network-wired',
+    link: '/discrete-math/'
+  },
+  {
+    title: 'جبر خطی',
+    desc: 'زبان اصلی داده‌کاوی، گرافیک و هوش مصنوعی.',
+    icon: 'fa-table-cells',
+    link: '/linear-algebra/'
+  },
+  {
+    title: 'آنالیز عددی',
+    desc: 'طراحی الگوریتم‌ها برای حل کامپیوتری و تقریبی معادلات پیچیده‌ای که حل دقیق ندارند.',
+    icon: 'fa-square-root-variable',
+    link: '/numerical-analysis/'
+  },
+  {
+    title: 'مبانی منطق',
+    desc: 'الفبای استدلال؛ پایه طراحی مدارها، هوش مصنوعی نمادین و اثبات درستی نرم‌افزارها.',
+    icon: 'fa-scale-balanced',
+    link: '/math-logic/'
+  },
+  {
+    title: 'نظریه محاسبات',
+    desc: 'هسته تئوری کامپیوتر؛ تعیین اینکه چه مسائلی اساساً توسط الگوریتم‌ها قابل حل هستند.',
+    icon: 'fa-gears',
+    link: '/theory-of-computation/'
+  },
+  {
+    title: 'ترکیبیات',
+    desc: 'هنر شمارش و گراف‌ها؛ ابزاری حیاتی برای طراحی الگوریتم‌ها، رمزنگاری و محاسبه پیچیدگی زمانی.',
+    icon: 'fa-shapes',
+    link: '/combinatorics/'
+  }
+];
+---
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<section class="home-courses-wrapper">
+  <div class="courses-header">
+    <div class="courses-badge">
+      <span>آموزش ها · Learning</span>
+      <span class="badge-line"></span>
+    </div>
+    <h2 class="courses-title">آموزش های من</h2>
+  </div>
+
+  <div class="courses-grid">
+    {courses.map(course => (
+      <a href={course.link} class="course-card">
+        <div class="course-icon-wrap">
+          <i class={`fa-solid ${course.icon}`}></i>
+        </div>
+        <h3 class="course-card-title">{course.title}</h3>
+        <p class="course-card-desc">{course.desc}</p>
+        <div class="course-card-action">
+          دیدن آموزش <span class="arrow">←</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .home-courses-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 2.5rem auto 6rem auto;
+    padding: 0 1.5rem;
+    direction: rtl;
+    box-sizing: border-box;
+  }
+
+  .courses-header {
+    text-align: right;
+    margin-bottom: 2.5rem;
+  }
+
+  .courses-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0d9488;
+    margin-bottom: 0.6rem;
+  }
+
+  .courses-badge .badge-line {
+    display: inline-block;
+    width: 38px;
+    height: 3px;
+    background: #0d9488;
+    border-radius: 2px;
+  }
+
+  /* رنگ عنوان سازگار با هر دو حالت روشن و تیره */
+  .courses-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin: 0;
+    color: var(--sl-color-text, #0f172a);
+  }
+
+  /* گرید واکنش‌گرا */
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 1024px) {
+    .courses-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .courses-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .courses-header {
+      text-align: center;
+    }
+  }
+
+  /* ۱. استایل پیش‌فرض کارت‌ها در تم روشن (Light Mode) */
+  .course-card {
+    text-decoration: none !important;
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 1.25rem;
+    padding: 2.25rem 1.6rem 2rem 1.6rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  }
+
+  .course-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(14, 165, 233, 0.45);
+    box-shadow: 0 20px 30px -10px rgba(14, 165, 233, 0.18), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .course-icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(14, 165, 233, 0.08);
+    border: 1px solid rgba(14, 165, 233, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0284c7;
+    font-size: 1.45rem;
+    margin-bottom: 1.35rem;
+    transition: all 0.3s ease;
+  }
+
+  .course-card:hover .course-icon-wrap {
+    background: rgba(14, 165, 233, 0.15);
+    border-color: #0284c7;
+    box-shadow: 0 0 18px rgba(14, 165, 233, 0.25);
+  }
+
+  .course-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.85rem 0;
+  }
+
+  .course-card-desc {
+    font-size: 0.9rem;
+    line-height: 1.85;
+    color: #475569;
+    margin: 0 0 1.75rem 0;
+    min-height: 52px;
+  }
+
+  .course-card-action {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #0284c7;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+
+  .course-card:hover .course-card-action {
+    color: #0369a1;
+  }
+
+  .course-card:hover .arrow {
+    transform: translateX(-4px);
+  }
+
+  .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+
+  /* ۲. استایل کارت‌ها در تم تیره (Dark Mode) */
+  :global([data-theme="dark"]) .courses-badge {
+    color: #2dd4bf;
+  }
+  :global([data-theme="dark"]) .courses-badge .badge-line {
+    background: #2dd4bf;
+  }
+  :global([data-theme="dark"]) .courses-title {
+    color: #ffffff;
+  }
+  :global([data-theme="dark"]) .course-card {
+    background: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  :global([data-theme="dark"]) .course-card:hover {
+    background: rgba(20, 30, 55, 0.75);
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.15);
+  }
+  :global([data-theme="dark"]) .course-icon-wrap {
+    background: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.28);
+    color: #38bdf8;
+  }
+  :global([data-theme="dark"]) .course-card:hover .course-icon-wrap {
+    background: rgba(56, 189, 248, 0.16);
+    border-color: #38bdf8;
+    color: #7dd3fc;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+  }
+  :global([data-theme="dark"]) .course-card-title {
+    color: #ffffff;
+  }
+  :global([data-theme="dark"]) .course-card-desc {
+    color: #94a3b8;
+  }
+  :global([data-theme="dark"]) .course-card-action {
+    color: #38bdf8;
+  }
+  :global([data-theme="dark"]) .course-card:hover .course-card-action {
+    color: #7dd3fc;
+  }
+</style>
