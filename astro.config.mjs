@@ -98,8 +98,21 @@ export default defineConfig({
           items: [
             { label: "نگاه کلی و معرفی دوره", link: "/math-basic/" },
             {
-              label: "جلسه ۱: منطق ریاضی و گزاره‌ها",
-              link: "/math-basic/logic/",
+              label: "پودمان اول: حساب",
+              items: [
+                { label: "مقدمه پودمان اول", link: "/math-basic/arithmetic/" },
+                {
+                  label: "انواع اعداد در ریاضی",
+                  items: [
+                    {
+                      label: "انواع اعداد در ریاضی",
+                      link: "/math-basic/arithmetic/types-of-numbers/unit1/",
+                    },
+                  ],
+                },
+                // جلسات بعدی پودمان به مرور در اینجا اضافه می‌شوند:
+                // { label: "جلسه ۱: ...", link: "/math-basic/arithmetic/session-1/" },
+              ],
             },
             { label: "جلسه ۲: نظریه مجموعه‌ها", link: "/math-basic/sets/" },
             {

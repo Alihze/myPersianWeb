@@ -7,7 +7,7 @@ hero:
     <span class="hero-greeting">سلام، من</span><span class="hero-name">علی‌‌اکبر حسن‌زاده</span>
   tagline: علاقه مند به علوم کامپیوتر و هوش مصنوعی هستم نزدیک 5 سال است در زمینه طراحی وب کار کرده ام و الان شروع کردم برای کنکور ارشد علوم کامپیوتر  میخونم و هر چیزی که یاد میگیرم رو اینجا با شما به اشتراک میزارم
   image:
-    html: <img src="../../../public/author.webp" alt="علی‌اکبر حسن‌زاده" class="hero-avatar" />
+    html: <img src="/author.webp" alt="علی‌اکبر حسن‌زاده" class="hero-avatar" />
   actions:
     - text: شروع یادگیری
       link: /math-basic/
