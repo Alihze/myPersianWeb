@@ -6,6 +6,12 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
 export default defineConfig({
+  site: "https://codeelite.ir",
+  compressHTML: true, // فشرده‌سازی و حذف فاصله‌های خالی کدهای HTML
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: "hover", // به محض بردن ماوس روی لینک پیش‌بارگذاری شود
+  },
   devToolbar: {
     enabled: false,
   },
@@ -59,25 +65,25 @@ export default defineConfig({
       },
       plugins: [starlightThemeGalaxy()],
       social: [
-        {
-          icon: "github",
-          label: "GitHub",
-          href: "https://github.com/your-username",
-        },
+        // {
+        //   icon: "github",
+        //   label: "GitHub",
+        //   href: "https://github.com/your-username",
+        // },
         {
           icon: "x.com",
           label: "Twitter",
-          href: "https://x.com/your-username",
+          href: "https://x.com/AliHz_cs",
         },
         {
           icon: "linkedin",
           label: "LinkedIn",
-          href: "https://linkedin.com/in/your-username",
+          href: "https://www.linkedin.com/in/aliakbar-hasanzadeh-95484b412",
         },
         {
           icon: "instagram",
           label: "Instagram",
-          href: "https://instagram.com/your-username",
+          href: "https://www.instagram.com/alihz_cs",
         },
       ],
 

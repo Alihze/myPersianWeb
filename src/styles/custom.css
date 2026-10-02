@@ -1,7 +1,7 @@
 /* بارگذاری فونت وزیرمتن */
 @import "@fontsource/vazirmatn/400.css";
 @import "@fontsource/vazirmatn/700.css";
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"); */
 
 :root {
   --sl-font: "Vazirmatn", system-ui, -apple-system, sans-serif;
@@ -336,33 +336,43 @@ html[dir="rtl"] .sl-markdown-content ol,
 /* ===================================================
    حالت تمرکز برای مطالعه (Zen / Focus Mode)
 =================================================== */
+/* ===================================================
+   حالت تمرکز برای مطالعه (Zen / Focus Mode)
+=================================================== */
 
-/* ۱. صفر کردن عرض‌های رزرو شده استارلایت */
+/* ۱. صفر کردن عرض‌های رزرو شده سایدبارها در استارلایت */
 html.zen-mode {
   --sl-sidebar-width: 0rem !important;
   --sl-toc-width: 0rem !important;
 }
 
-/* ۲. پنهان‌سازی هدر، نوار ۱۶ درس، سایدبارها و ابزارهای جانبی */
-html.zen-mode header,
-html.zen-mode,
+/* ۲. پنهان‌سازی عناصر مزاحم (بدون مخفی کردن خود صفحه!) */
+html.zen-mode header.header,
 html.zen-mode nav.sidebar,
 html.zen-mode .sidebar-pane,
 html.zen-mode aside.right-sidebar,
 html.zen-mode .right-sidebar-container,
 html.zen-mode starlight-toc,
-html.zen-mode .mobile-starlight-toc,
+html.zen-mode mobile-starlight-toc,
 html.zen-mode .author-box-card,
+html.zen-mode .site-global-footer,
 html.zen-mode .pagination-links,
+html.zen-mode .progress-scroll-container,
 html.zen-mode footer .meta {
   display: none !important;
 }
 
 /* ۳. گسترش و وسط‌چین کردن کامل متن درس */
+html.zen-mode .page {
+  background: transparent !important;
+}
+
 html.zen-mode .main-frame {
   margin-inline-start: 0 !important;
-  padding-top: 3rem !important;
+  margin-inline-end: 0 !important;
   padding-inline: 1.5rem !important;
+  padding-top: 3rem !important;
+  width: 100% !important;
   max-width: 100% !important;
 }
 
@@ -370,17 +380,33 @@ html.zen-mode .main-pane {
   width: 100% !important;
   max-width: 860px !important;
   margin: 0 auto !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 html.zen-mode .content-panel {
   padding: 0 !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
 html.zen-mode .sl-markdown-content {
   font-size: 1.05rem !important;
   line-height: 2.3 !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
+/* ۴. تضمین ماندگاری و شناور بودن دکمه خروج */
+html.zen-mode .zen-floating-container {
+  display: block !important;
+  position: fixed !important;
+  bottom: 2rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 99999 !important;
+}
 /* ===================================================
    استایل هیرو صفحه اصلی (وسط‌چین موبایل + بهینه‌سازی تم روشن)
 =================================================== */
